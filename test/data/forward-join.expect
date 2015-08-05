@@ -1,0 +1,37 @@
+[]	20.593249
+["buying"]	20.593249
+["maint"]	20.593249
+["doors"]	20.593249
+["persons"]	20.593249
+["lug_boot"]	20.593249
+["safety"]	20.593249
+["buying", "safety"]	23.977021
+["maint", "safety"]	24.927324
+["doors", "safety"]	20.593249
+["persons", "safety"]	35.872695
+["lug_boot", "safety"]	20.593249
+["buying+safety"]	25.035130
+["maint+safety"]	23.749852
+["doors+safety"]	20.593249
+["persons+safety"]	38.349123
+["lug_boot+safety"]	20.593249
+["buying", "persons+safety"]	39.658738
+["maint", "persons+safety"]	39.658738
+["doors", "persons+safety"]	38.900228
+["lug_boot", "persons+safety"]	39.933025
+["buying+persons+safety"]	46.238051
+["maint+persons+safety"]	38.257848
+["doors+persons+safety"]	38.334034
+["lug_boot+persons+safety"]	39.441142
+["buying+persons+safety", "maint"]	53.015523
+["buying+persons+safety", "doors"]	44.931948
+["buying+persons+safety", "lug_boot"]	53.718881
+["buying+maint+persons+safety"]	56.829778
+["buying+doors+persons+safety"]	40.293077
+["buying+lug_boot+persons+safety"]	52.397441
+["buying+maint+persons+safety", "doors"]	57.278267
+["buying+maint+persons+safety", "lug_boot"]	69.846452
+["buying+doors+maint+persons+safety"]	38.184276
+["buying+lug_boot+maint+persons+safety"]	77.810145
+["buying+lug_boot+maint+persons+safety", "doors"]	75.780031
+["buying+doors+lug_boot+maint+persons+safety"]	20.593249

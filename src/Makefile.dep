@@ -1,0 +1,14 @@
+src/bayes_fss.o: src/bayes_fss.c src/dataset.h src/common.h src/column.h \
+ src/buffer.h src/eval.h src/measure.h src/search.h src/help_screen.h
+src/buffer.o: src/buffer.c src/buffer.h src/common.h
+src/column.o: src/column.c src/column.h src/buffer.h src/common.h \
+ src/dataset.h src/eval.h src/measure.h
+src/common.o: src/common.c src/common.h
+src/dataset.o: src/dataset.c src/dataset.h src/buffer.h src/eval.h \
+ src/column.h src/measure.h src/common.h
+src/eval.o: src/eval.c src/eval.h src/dataset.h src/column.h src/buffer.h \
+ src/measure.h src/search.h src/common.h
+src/measure.o: src/measure.c src/measure.h src/common.h src/dataset.h \
+ src/eval.h src/column.h src/buffer.h
+src/search.o: src/search.c src/search.h src/dataset.h src/buffer.h \
+ src/measure.h src/common.h src/eval.h src/column.h

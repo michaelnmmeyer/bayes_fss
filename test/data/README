@@ -1,0 +1,9 @@
+Datasets provenance:
+
+cars.tsv
+
+   https://archive.ics.uci.edu/ml/datasets/Car+Evaluation
+
+sbd.tsv, empty.tsv:
+
+   https://www.rocq.inria.fr/alpage-wiki/tiki-index.php?page=CorpusSequoia
