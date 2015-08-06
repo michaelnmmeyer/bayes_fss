@@ -3,7 +3,6 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdnoreturn.h>
 
 #include "search.h"
 #include "dataset.h"
@@ -101,11 +100,11 @@ static char g_full_report[] = {
 "   \"interrupted\": %s\n"
 "}\n"
 };
-noreturn static void print_best(void)
+static void print_best(void)
 {
    if (g_best_score == INVALID_SCORE) {
       // Not enough time to do anything.
-      exit(EXIT_SUCCESS);
+      return;
    }
 
    eval_model();
@@ -120,8 +119,6 @@ noreturn static void print_best(void)
       stats.F1 * 100.,
       g_eval.num_evals,
       g_stop ? "true" : "false");
-
-   exit(EXIT_SUCCESS);
 }
 
 static void compress_json(char *json)
@@ -402,7 +399,7 @@ static void handle_signal(int sig)
    g_stop = true;
 }
 
-noreturn void search(void)
+void search(void)
 {
    void (*func)(void) = search_method();
    

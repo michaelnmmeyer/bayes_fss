@@ -23,7 +23,7 @@ struct config {
 };
 
 struct eval {
-   size_t max_fold_size;   // Maximum number of samples in a fold.
+   size_t fold_size;
    
    size_t fold_no;         // Current fold number (starting at zero).
    uint32_t num_samples;   // Number of samples in the current train set.

@@ -89,12 +89,14 @@ static void (*update_mat)(void);
 
 void eval_init(void)
 {
-   g_eval.max_fold_size = g_data.num_samples / g_config.num_folds;
-   if (!g_eval.max_fold_size)
+   // We drop some samples if num_samples is not a multiple of num_folds
+   // I don't think this matters much.
+   g_eval.fold_size = g_data.num_samples / g_config.num_folds;
+   if (!g_eval.fold_size)
       die("not enough samples for evaluation (have %zu, can't perform %zu-fold cross-validation)",
           g_data.num_samples, g_config.num_folds);
    
-   g_eval.probs = xmalloc(sizeof(double[g_eval.max_fold_size][g_data.num_labels]));
+   g_eval.probs = xmalloc(sizeof(double[g_eval.fold_size][g_data.num_labels]));
    
    g_eval.labels_freqs = xmalloc(g_data.num_labels * sizeof *g_eval.labels_freqs);
    g_eval.types_freqs = xmalloc((g_data.num_features + 1) * sizeof *g_eval.types_freqs);
@@ -188,9 +190,7 @@ double eval_model(void)
    for (size_t fold = 0; fold < g_config.num_folds; fold++) {
       g_eval.fold_no = fold;
       g_eval.test_start = g_eval.test_end;
-      g_eval.test_end += g_eval.max_fold_size;
-      if (g_eval.test_end > g_data.num_samples)
-         g_eval.test_end = g_data.num_samples;
+      g_eval.test_end += g_eval.fold_size;
       
       train();
       compute_probs();

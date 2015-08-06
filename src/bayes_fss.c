@@ -11,7 +11,7 @@
 #include "eval.h"
 #include "search.h"
 
-#define VERSION "0.1"
+#define VERSION "0.2"
 
 const char *g_progname = "bayes_fss";
 
@@ -30,9 +30,9 @@ struct config g_config = {
 
 noreturn static void usage(void)
 {
-	const char help[] =
-	#include "help_screen.h"
-	;
+   const char help[] =
+   #include "help_screen.h"
+   ;
    printf(help, g_progname);
    exit(EXIT_SUCCESS);
 }
