@@ -1,4 +1,4 @@
-"Usage: %s [options] <dataset>\n"
+"Usage: %s [options] [--] <dataset>\n"
 "Select an optimal feature subset for Bayesian classification.\n"
 "\n"
 "Main options:\n"

@@ -28,12 +28,17 @@ struct config g_config = {
    .compact_json = false,
 };
 
-noreturn static void usage(void)
+static void display_help(FILE *fp)
 {
    const char help[] =
    #include "help_screen.h"
    ;
-   printf(help, g_progname);
+   fprintf(fp, help, g_progname);
+}
+
+noreturn static void usage(void)
+{
+   display_help(stdout);
    exit(EXIT_SUCCESS);
 }
 
@@ -162,8 +167,10 @@ static void get_options(int argc, char **argv)
    
    if (argc - i > 1)
       die("excess arguments");
-   if (argc - i == 0)
-      die("no dataset specified");
+   if (argc - i == 0) {
+      display_help(stderr);
+      exit(EXIT_FAILURE);
+   }
    g_config.dataset_path = argv[i];
 }
 

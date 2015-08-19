@@ -1,4 +1,4 @@
-Usage: %s [options] <dataset>
+Usage: %s [options] [--] <dataset>
 Select an optimal feature subset for Bayesian classification.
 
 Main options:
