@@ -8,6 +8,7 @@
 #include "buffer.h"
 #include "eval.h"
 #include "common.h"
+#include "cmd.h"
 
 struct dataset g_data;
 

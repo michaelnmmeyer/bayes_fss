@@ -3,6 +3,7 @@
 #include "common.h"
 #include "dataset.h"
 #include "eval.h"
+#include "cmd.h"
 
 extern struct config g_config;
 

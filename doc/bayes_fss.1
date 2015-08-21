@@ -19,7 +19,7 @@ notation.
 .SS Main options
 
 .TP
-.B \-\-mode=<binary|multiclass> [multiclass]
+.B \-m, \-\-mode=<binary|multiclass> [multiclass]
 Classification mode. Applying a binary classifier to a dataset that includes
 more than two labels is valid and allowed. If binary classification is chosen,
 the
@@ -27,21 +27,21 @@ the
 option must also be given.
 
 .TP
-.B \-\-truth=<label_name>
+.B \-t, \-\-truth=<label_name>
 Name of the label corresponding to the positive class, when doing binary
 classification.
 
 .TP
-.B \-\-folds=<integer> [5]
+.B \-k, \-\-folds=<integer> [5]
 Number of folds for cross-validation. Must be strictly greater than one and
 smaller than or equal to the number of samples.
 
 .TP
-.B \-\-smooth=<float> [0.5]
+.B \-S, \-\-smooth=<float> [0.5]
 Frequency increment for additive smoothing. Must be strictly greater than zero.
 
 .TP
-.B \-\-search=<none|forward|forward-join|backward|backward-join> [forward-join]
+.B \-s, \-\-search=<none|forward|forward-join|backward|backward-join> [forward-join]
 Search strategy.
 
 .B none
@@ -70,16 +70,16 @@ be better, and choose the best solution. This is the most expensive search
 method.
 
 .TP
-.B \-\-measure=<accuracy|precision|recall|F1> [F1]
+.B \-M, \-\-measure=<accuracy|precision|recall|F1> [F1]
 Measure to maximize.
 
 .TP
-.B \-\-average=<micro|macro> [macro]
+.B \-a, \-\-average=<micro|macro> [macro]
 Averaging mode to use for performance measurement when doing multiclass
 classification.
 
 .TP
-.B \-\-max-features=<integer> [inf]
+.B \-F, \-\-max-features=<integer> [inf]
 Maximum number of features to select. This is the number of original features:
 joined features, if any, count as the number of original features they join.
 This option can only be used when
@@ -90,7 +90,7 @@ or
 .B forward-join.
 
 .TP
-.B \-\-max-links=<integer> [inf]
+.B \-L, \-\-max-links=<integer> [inf]
 Maximum number of features dependencies to model. This option can only be given
 if
 .B \-\-search
@@ -106,18 +106,18 @@ The default is to not restrict the number of features dependencies.
 .SS Output options
 
 .TP
-.B \-v | \-\-verbose
+.B \-v, \-\-verbose
 Output performance measures for each model evaluated instead of merely for the
 best performing one.
 
 .TP
-.B \-\-compact
+.B \-c, \-\-compact
 Compress the output of the program so that JSON documents fit on a single line.
 Per default, JSON documents are pretty-printed.
 
 .SS General options
 .TP
-.B \-h | \-\-help
+.B \-h, \-\-help
 Display a short help message.
 .TP
 .B \-\-version

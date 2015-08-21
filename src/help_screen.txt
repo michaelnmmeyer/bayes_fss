@@ -2,26 +2,27 @@ Usage: %s [options] [--] <dataset>
 Select an optimal feature subset for Bayesian classification.
 
 Main options:
-   --mode=<binary|multiclass> classification mode [multiclass]
-   --truth=<label_name>       name of the label corresponding to the positive
-                                class, when doing binary classification
-   --folds=<integer>          number of folds for cross-validation [5]
-   --smooth=<float>           frequency increment for additive smoothing [0.5]
-   --measure=<name>           measure to maximize (accuracy|precision|recall|F1)
-                                [F1]
-   --average=<micro|macro>    averaging mode for multiclass classification
-                                 [macro].
-   --search=<mode>            search mode (none|forward|forward-join|backward|
-                                backward-join) [forward-join]
-   --max-features=<integer>   maximum number of features to select [inf]
-   --max-links=<integer>      maximum number of dependencies to model [inf]
+   -m, --mode=<string>          classification mode (binary|multiclass)
+                                  [multiclass]
+   -t, --truth=<string>         name of the label corresponding to the positive
+                                  class, for binary classification
+   -k, --folds=<integer>        number of folds for cross-validation [5]
+   -S, --smooth=<float>         frequency increment for additive smoothing [0.5]
+   -M, --measure=<string>       measure to maximize (accuracy|precision|recall|
+                                  F1) [F1]
+   -a, --average=<string>       averaging mode for multiclass classification
+                                  (micro|macro) [macro]
+   -s, --search=<string>        search mode (none|forward|forward-join|backward|
+                                  backward-join) [forward-join]
+   -F, --max-features=<integer> maximum number of features to select [inf]
+   -L, --max-links=<integer>    maximum number of dependencies to model [inf]
 
 Output options:
-   -v | --verbose             output performance measures for all evaluated
-                                models
-   --compact                  output compressed JSON documents that fit on a
-                                single line
+   -v, --verbose                output performance measures for all evaluated
+                                  models
+   -c, --compact                output compressed JSON documents that fit on a
+                                  single line
 
 General options:
-   -h | --help                display this message
-   --version                  display the current version
+   -h, --help                   display this message
+   --version                    display the current version

@@ -10,6 +10,7 @@
 #include "measure.h"
 #include "common.h"
 #include "eval.h"
+#include "cmd.h"
 
 extern struct config g_config;
 extern struct eval g_eval;

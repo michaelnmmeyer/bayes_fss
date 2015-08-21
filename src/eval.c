@@ -5,6 +5,8 @@
 #include "measure.h"
 #include "search.h"
 #include "common.h"
+#include "eval.h"
+#include "cmd.h"
 
 extern struct config g_config;
 

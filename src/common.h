@@ -3,8 +3,6 @@
 
 #include <stdlib.h>
 #include <stddef.h>
-#include <stdarg.h>
-#include <stdnoreturn.h>
 #include <assert.h>
 
 void *xmalloc(size_t size);
@@ -14,8 +12,6 @@ void *xcalloc(size_t nmemb, size_t size);
 void *xrealloc(void *mem, size_t size);
 
 char *xstrdup(const char *str);
-
-noreturn void die(const char *format, ...);
 
 #define ENLARGE(buf, size, alloc, init) do {                                   \
    const size_t size_ = (size);                                                \

@@ -5,9 +5,9 @@ Feature subset selection for Naive Bayes classification.
 
 ## Purpose
 
-This is a small tool for performing feature subset selection so as to improve
-the performance of a Naive Bayes classifier. Given a dataset, it evaluates
-several features subsets in turn and outputs an optimal one. It can also learn
+This is a small tool for selecting features subsets so as to improve the
+performance of a Naive Bayes classifier. Given a dataset, it evaluates several
+features subsets in turn and outputs an optimal one. It can also learn
 dependencies between features, which helps to improve performance.
 
 In short:
@@ -24,9 +24,9 @@ In short:
     }
 
 I wrote this program because I was tired of spending time manually adjusting and
-testing features sets for my NLP stuff, and wanted a convenient program to do
-that tedious work for me. This is the intended use case. For more complex
-scenarios (and more bloat), you can use Weka.
+testing features for my NLP stuff, and wanted a convenient program to do that
+work for me. This is the intended use case. For more complex scenarios (and more
+bloat), you can use Weka.
 
 ## Building
 
