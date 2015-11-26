@@ -118,7 +118,7 @@ static void handle_option(struct option *opt, const char *arg)
          char *end;
          errno = 0;
          long long num = strtoll(arg, &end, 10);
-         if (errno || *end || num < 0 || num > (long long)SIZE_MAX)
+         if (errno || *end || num < 0 || (uintmax_t)num > SIZE_MAX)
             legit = false;
          else
             *opt->z = num;
@@ -185,7 +185,7 @@ noreturn void parse_command(struct command *commands, const char *help,
    set_help(help);
    
    if (argc == 1)
-      die("no command specified");
+      display_help();
    
    const char *arg = argv[1];
    for (struct command *cmd = commands; cmd->name; cmd++) {

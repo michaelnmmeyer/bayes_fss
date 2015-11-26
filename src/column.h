@@ -33,6 +33,8 @@ struct feature {
    };
 };
 
+struct table_vtab;
+
 struct table {
    struct feature **samples;
    struct feature **table;    // Hash table.
@@ -41,7 +43,6 @@ struct table {
    size_t num_types;          // Number of features types.
    size_t resize_threshold;   // Enlarge the table when "num_types" reaches this
                               // value.
-   struct table_vtab;
    const struct table_vtab *vtab;   // Hash, compare, allocate features.
 };
 
