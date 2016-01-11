@@ -17,5 +17,10 @@ replacements = {
 for key, value in replacements.copy().items():
 	replacements[key] = "\\" + value
 
+line = None
 for line in sys.stdin:
 	print('"%s"' % "".join(replacements.get(c, c) for c in line))
+
+# Empty file.
+if line is None:
+   print('""')
