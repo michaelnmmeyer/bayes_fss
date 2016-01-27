@@ -202,9 +202,9 @@ static void search_backward(void)
    size_t num_features = g_data.num_features;
    size_t num_active_features = num_features;
    struct column *columns = g_data.columns;
+   size_t max_features = g_config.max_features;
    
-   while (num_active_features) {
-      num_active_features--;
+   while (num_active_features--) {
       double cur_best = 0.;
       struct column *to_remove = NULL;
       
@@ -221,7 +221,7 @@ static void search_backward(void)
          }
       }
       
-      if (g_stop || cur_best < g_best_score)
+      if (g_stop || (cur_best < g_best_score && num_active_features < max_features))
          break;
       // If even, prefer the shorter subset.
       to_remove->state = COL_INACTIVE;
@@ -316,7 +316,8 @@ static void search_backward_join(void)
    size_t num_features = g_data.num_features;
    size_t num_active_features = num_features;
    struct column *join_column = &columns[num_features];
-   size_t max_links = g_config.max_links;;
+   size_t max_links = g_config.max_links;
+   size_t max_features = g_config.max_features;
    
    while (num_active_features) {
       num_active_features--;
@@ -363,7 +364,7 @@ static void search_backward_join(void)
       }
       join_column->state = COL_INACTIVE;
 
-      if (g_stop || cur_best < g_best_score)
+      if (g_stop || (cur_best < g_best_score && num_active_features < max_features))
          break;
 
       to_remove->state = COL_INACTIVE;
@@ -403,12 +404,6 @@ static void handle_signal(int sig)
 void search(void)
 {
    void (*func)(void) = search_method();
-   
-   if (g_config.max_features != SIZE_MAX
-       && strcmp(g_config.search_mode, "forward")
-       && strcmp(g_config.search_mode, "forward-join"))
-      die("--max-features can only be given when the search mode is 'forward' or 'forward-join', have '%s'",
-          g_config.search_mode);
    
    if (g_config.max_links != SIZE_MAX
        && strcmp(g_config.search_mode, "forward-join")
