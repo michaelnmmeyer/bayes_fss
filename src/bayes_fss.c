@@ -27,7 +27,7 @@ noreturn static void version(void)
 {
    const char msg[] =
    "Bayes FSS version "VERSION"\n"
-   "Copyright (c) 2015 Michaël Meyer"
+   "Copyright (c) 2015-16 Michaël Meyer"
    ;
    puts(msg);
    exit(EXIT_SUCCESS);
