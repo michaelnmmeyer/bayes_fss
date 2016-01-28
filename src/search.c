@@ -118,7 +118,7 @@ static void print_best(void)
       stats.precision * 100.,
       stats.recall * 100.,
       stats.F1 * 100.,
-      g_eval.num_evals,
+      g_eval.num_evals - 1,
       g_stop ? "true" : "false");
 }
 

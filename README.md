@@ -28,7 +28,7 @@ Bayes classifier that uses all these features as follows:
        "precision": 77.187566,
        "recall": 58.949352,
        "F1": 64.245426,
-       "subsets_evaluated": 2,
+       "subsets_evaluated": 1,
        "interrupted": false
     }
 
@@ -41,7 +41,7 @@ Can we do better? Lets check:
        "precision": 94.168320,
        "recall": 86.875141,
        "F1": 90.011069,
-       "subsets_evaluated": 54,
+       "subsets_evaluated": 53,
        "interrupted": false
     }
 
