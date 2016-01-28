@@ -2,7 +2,8 @@
 
 import sys, json
 
-JOIN_STRING = "@_+_@"
+FEATURE_JOIN_STRING = "+"
+VALUE_JOIN_STRING = "�"
 
 features_to_select = json.loads("".join(sys.argv[1:]))
 
@@ -17,7 +18,7 @@ for feature in features_to_select:
    for sub_feature in feature:
       assert sub_feature in features, "%s not in %s" % (sub_feature, features)
 
-print("\t" + "\t".join(feature if isinstance(feature, str) else JOIN_STRING.join(feature) \
+print("\t" + "\t".join(feature if isinstance(feature, str) else FEATURE_JOIN_STRING.join(feature) \
      for feature in features_to_select))
 
 for sample in sys.stdin:
@@ -32,7 +33,7 @@ for sample in sys.stdin:
    for feature in features_to_select:
       if isinstance(feature, str):
          feature = [feature]
-      sample_features.append(JOIN_STRING.join(values[sub_feature] for sub_feature in feature))
+      sample_features.append(VALUE_JOIN_STRING.join(values[sub_feature] for sub_feature in feature))
    
    print("%s\t%s" % (label, "\t".join(sample_features)))
 

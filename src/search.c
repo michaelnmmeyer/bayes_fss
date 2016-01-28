@@ -223,6 +223,7 @@ static void search_backward(void)
       
       if (g_stop || (cur_best < g_best_score && num_active_features < max_features))
          break;
+
       // If even, prefer the shorter subset.
       to_remove->state = COL_INACTIVE;
       g_best_score = cur_best;
@@ -318,9 +319,9 @@ static void search_backward_join(void)
    struct column *join_column = &columns[num_features];
    size_t max_links = g_config.max_links;
    size_t max_features = g_config.max_features;
-   
-   while (num_active_features) {
-      num_active_features--;
+   size_t num_features_used = num_active_features;
+
+   while (num_active_features--) {
       double cur_best = 0.;
       struct column *to_remove = NULL;
       struct column *to_merge = NULL;
@@ -364,12 +365,14 @@ static void search_backward_join(void)
       }
       join_column->state = COL_INACTIVE;
 
-      if (g_stop || (cur_best < g_best_score && num_active_features < max_features))
+      if (g_stop || (cur_best < g_best_score && num_features_used <= max_features))
          break;
 
       to_remove->state = COL_INACTIVE;
       if (to_merge)
          column_merge(to_merge, to_remove);
+      else
+         num_features_used -= to_remove->num_links + 1;
       g_best_score = cur_best;
    }
 }
