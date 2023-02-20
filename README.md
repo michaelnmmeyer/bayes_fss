@@ -32,7 +32,7 @@ Bayes classifier that uses all these features as follows:
        "interrupted": false
     }
 
-Can we do better? Lets check:
+Can we do better? Let's check:
 
     $ bayes_fss --search=backward-join test/data/cars.tsv
     {
